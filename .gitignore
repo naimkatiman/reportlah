@@ -1,2 +1,5 @@
 # Archived Claude memory files are private; /sweep moves them here and they must never be committed.
 /archive/memory/
+
+# Playwright MCP session dumps are local debugging output, not project source.
+/.playwright-mcp/
