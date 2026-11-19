@@ -109,6 +109,8 @@ export default function Manager() {
         <span className="row">
           <button type="button" className="btn btn-ink" onClick={() => setPresent(true)}>Present</button>
           <Link className="btn" href="/">Resident page</Link>
+          <a className="btn" href="https://naimkatiman.github.io/reportlah/" target="_blank" rel="noreferrer">Demo video</a>
+          <a className="btn" href="https://naimkatiman.github.io/reportlah/deck/" target="_blank" rel="noreferrer">Pitch deck</a>
           <button type="button" className="btn" onClick={reset}>Reset</button>
         </span>
       </header>

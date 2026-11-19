@@ -8,6 +8,8 @@ This repository contains the starting Next.js app and the [project blueprint](BL
 
 - Resident: https://reportlah.m-naim.workers.dev
 - Admin: https://reportlah.m-naim.workers.dev/manager
+- Demo video: https://naimkatiman.github.io/reportlah/
+- Pitch deck: https://naimkatiman.github.io/reportlah/deck/
 
 Both pages share one backend, so a complaint sent from the resident page appears on the admin page within three seconds.
 

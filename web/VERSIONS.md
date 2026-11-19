@@ -9,3 +9,4 @@
 - v6: Tap an issue in the ranking: the camera flies to its stack and the complaint list filters to it (Current Version ID: 61a2fdb7-7863-483f-8454-79259cf9f132)
 - v7: Resident waiting scene in three.js: the slip passes Read, Group, Write, Check while the complaint is placed (Current Version ID: 35d3cd33-c1dc-4b01-80b9-33860fd43cd1)
 - v8: Attach a photo or video first: the assistant describes a photo and a sample place is suggested, both marked and editable (Current Version ID: c2a0ff26-6758-42ab-9abd-1fceb0f0fca7)
+- v9: Photo or video always fills in a description (sample text when it cannot be read); demo video and deck links on the admin page (Current Version ID: 39a92b1d-0f9f-4e12-8e71-f87e2d336d3e)

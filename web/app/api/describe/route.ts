@@ -5,6 +5,7 @@ const KINDS = ['Blocked drain', 'Streetlight not working', 'Pothole in the road'
 // is not read at all, so these stand in until the resident corrects them.
 const SAMPLE_PLACE = 'Jalan Kerinchi bus stop, Bangsar South'
 const SAMPLE_VIDEO = 'Video shows the problem at this spot.'
+const SAMPLE_PHOTO = 'Photo shows a public facility problem at this spot.'
 
 // Suggests a description and a place for an attached photo or video, to save the resident typing.
 // Nothing is stored here. The resident can change every field before sending.
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
   if (!(file instanceof File) || file.size === 0 || file.size > 25 * 1024 * 1024) return Response.json({ error: 'invalid_input' }, { status: 400 })
   const sample = { place: SAMPLE_PLACE, place_source: 'sample' as const }
   if (!file.type.startsWith('image/') || file.size > 4 * 1024 * 1024) {
-    return Response.json({ description: file.type.startsWith('video/') ? SAMPLE_VIDEO : '', description_source: 'sample', kind: '', ...sample })
+    return Response.json({ description: file.type.startsWith('video/') ? SAMPLE_VIDEO : SAMPLE_PHOTO, description_source: 'sample', kind: '', ...sample })
   }
   try {
     const url = `data:${file.type};base64,${Buffer.from(await file.arrayBuffer()).toString('base64')}`
@@ -30,6 +31,7 @@ export async function POST(request: Request) {
     if (!description) throw new Error('empty')
     return Response.json({ description, description_source: 'assistant', kind: KINDS.includes(String(j.kind)) ? String(j.kind) : '', ...sample })
   } catch {
-    return Response.json({ description: '', description_source: 'sample', kind: '', ...sample })
+    // The photo could not be read: the form is still filled in, with sample text marked as such.
+    return Response.json({ description: SAMPLE_PHOTO, description_source: 'sample', kind: '', ...sample })
   }
 }
