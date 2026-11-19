@@ -3,7 +3,6 @@
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: false,
-  partialPrefetching: true,
   turbopack: {
     rules: {
       "*.css": {
