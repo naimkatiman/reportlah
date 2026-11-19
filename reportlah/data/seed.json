@@ -1,0 +1,53 @@
+{
+  "area": "Bangsar South",
+  "place_fallback": "Drain near the bus stop, Jalan Kerinchi",
+  "place_words": [
+    "drain", "drains", "drainage", "ditch", "gutter", "culvert", "sewer", "longkang", "parit", "saluran", "alur",
+    "bus", "stop", "perhentian", "bas", "station", "stesen", "terminal",
+    "jalan", "lorong", "lebuh", "persiaran", "lane", "road", "street", "avenue", "junction", "simpang", "highway", "lebuhraya",
+    "walkway", "pavement", "footpath", "sidewalk", "kaki", "lima", "laluan",
+    "near", "opposite", "beside", "behind", "front", "next", "along", "outside", "inside", "corner", "side",
+    "depan", "hadapan", "belakang", "tepi", "sebelah", "berhampiran", "dekat", "seberang", "bertentangan", "hujung",
+    "area", "kawasan", "residential", "apartment", "condominium", "kondominium", "block", "blok", "taman", "bangunan", "building",
+    "school", "sekolah", "market", "pasar", "mosque", "masjid", "surau", "park", "bridge", "jambatan", "mall", "shop", "kedai",
+    "bangsar", "south", "kerinchi", "pantai", "dalam", "kuala", "lumpur"
+  ],
+  "recipient": { "label": "Local authority", "confirmed": false, "source_url": null },
+  "complaints": [
+    {
+      "id": "c_1",
+      "text": "Longkang depan perhentian bas Jalan Kerinchi tersumbat, air bertakung dah tiga hari.",
+      "date": "2026-11-10",
+      "has_photo": false,
+      "channel": "seed"
+    },
+    {
+      "id": "c_2",
+      "text": "The drain near the Jalan Kerinchi bus stop is clogged again. Smells terrible.",
+      "date": "2026-11-12",
+      "has_photo": false,
+      "channel": "seed"
+    },
+    {
+      "id": "c_3",
+      "text": "Parit tepi Jalan Kerinchi penuh sampah, nyamuk makin banyak.",
+      "date": "2026-11-14",
+      "has_photo": false,
+      "channel": "seed"
+    },
+    {
+      "id": "c_4",
+      "text": "Drain blocked opposite the bus stop at Kerinchi, water overflowed onto the walkway after the rain.",
+      "date": "2026-11-16",
+      "has_photo": false,
+      "channel": "seed"
+    },
+    {
+      "id": "c_5",
+      "text": "Longkang tersumbat kat Kerinchi tu bila nak clear? Dah seminggu.",
+      "date": "2026-11-17",
+      "has_photo": false,
+      "channel": "seed"
+    }
+  ]
+}
