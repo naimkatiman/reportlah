@@ -11,8 +11,8 @@
 <style>
 html,body{margin:0;height:100%;background:#07090c;color:#f4f1ea;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
 #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-#stage img{position:absolute;max-width:100%;max-height:100%;width:auto;height:auto;aspect-ratio:16/9;opacity:0;transition:opacity .6s ease}
-#stage img.on{opacity:1}
+#stage img,#stage video{position:absolute;max-width:100%;max-height:100%;width:auto;height:auto;aspect-ratio:16/9;opacity:0;transition:opacity .6s ease}
+#stage img.on,#stage video.on{opacity:1}
 #bar{position:fixed;left:0;bottom:0;height:4px;background:#ff5a36;width:0}
 nav{position:fixed;left:0;right:0;bottom:10px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px}
 button,a.btn{min-width:48px;min-height:48px;padding:0 16px;border:0;border-radius:24px;background:rgba(20,24,34,.82);color:#f4f1ea;font:600 15px/1 inherit;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
@@ -26,9 +26,9 @@ button:focus-visible,a.btn:focus-visible{outline:3px solid #ff5a36;outline-offse
 <img src="s2.jpg" alt="Slide 2: The problem. One drain, five complaints, five wordings.">
 <img src="s3.jpg" alt="Slide 3: The solution. Reportlah turns them into one report: place, count, dates, an English message, what is missing.">
 <img src="s4.jpg" alt="Slide 4: How it works. Four steps: read, group, draft, check. Code counts, the agent writes.">
-<img src="s5.jpg" alt="Slide 5: Three ways in. Web, Telegram and MCP on one core.">
-<img src="s6.jpg" alt="Slide 6: Live demo. Five complaints become six, from a phone.">
-<img src="s7.jpg" alt="Slide 7: Why you can trust it. The rules are in code, not in the prompt.">
+<img src="s5.jpg" alt="Slide 5: For the community. Start with a photo, AI drafts the description, location and severity, then send.">
+<video src="../demo.mp4" poster="s6.jpg" muted playsinline preload="metadata" aria-label="Slide 6: Reportlah! demo video"></video>
+<img src="s7.jpg" alt="Slide 7: Why you can trust it. The app owns the numbers, the assistant writes.">
 <img src="s8.jpg" alt="Slide 8: Tech stack and Qoder.">
 <img src="s9.jpg" alt="Slide 9: Many complaints. One report. Try it at reportlah.m-naim.workers.dev.">
 </div>
@@ -42,16 +42,16 @@ button:focus-visible,a.btn:focus-visible{outline:3px solid #ff5a36;outline-offse
 <a class="btn" href="https://reportlah.m-naim.workers.dev/">Live app</a>
 </nav>
 <script>
-const imgs = [...document.querySelectorAll('#stage img')], bar = document.getElementById('bar'), n = document.getElementById('n'), playBtn = document.getElementById('play');
+const imgs = [...document.querySelectorAll('#stage img, #stage video')], bar = document.getElementById('bar'), n = document.getElementById('n'), playBtn = document.getElementById('play');
 const HOLD = 7000; let i = 0, playing = true, t0 = performance.now();
 const m = location.hash.match(/slide-(\d+)/); if (m) i = Math.min(imgs.length, Math.max(1, +m[1])) - 1;
-function show(k) { i = (k + imgs.length) % imgs.length; imgs.forEach((im, j) => im.classList.toggle('on', j === i)); n.textContent = (i + 1) + ' / ' + imgs.length; t0 = performance.now(); history.replaceState(null, '', '#slide-' + (i + 1)); }
+function show(k) { i = (k + imgs.length) % imgs.length; imgs.forEach((im, j) => { im.classList.toggle('on', j === i); if (im.tagName === 'VIDEO') { if (j === i) { im.currentTime = 0; im.play().catch(() => {}); } else im.pause(); } }); n.textContent = (i + 1) + ' / ' + imgs.length; t0 = performance.now(); history.replaceState(null, '', '#slide-' + (i + 1)); }
 function setPlaying(p) { playing = p; playBtn.textContent = p ? 'Pause' : 'Play'; playBtn.setAttribute('aria-label', p ? 'Pause autoplay' : 'Start autoplay'); t0 = performance.now(); if (!p) bar.style.width = '0'; }
-function tick(now) { if (playing) { const k = (now - t0) / HOLD; bar.style.width = Math.min(100, k * 100) + '%'; if (k >= 1) show(i + 1); } requestAnimationFrame(tick); }
+function tick(now) { if (playing) { const el = imgs[i]; const k = el.tagName === 'VIDEO' ? (el.ended ? 1 : (el.duration ? el.currentTime / el.duration : 0) * 0.999) : (now - t0) / HOLD; bar.style.width = Math.min(100, k * 100) + '%'; if (k >= 1) show(i + 1); } requestAnimationFrame(tick); }
 document.getElementById('next').onclick = () => show(i + 1);
 document.getElementById('prev').onclick = () => show(i - 1);
 playBtn.onclick = () => setPlaying(!playing);
-document.getElementById('stage').onclick = e => show(i + (e.clientX < innerWidth / 3 ? -1 : 1));
+document.getElementById('stage').onclick = e => { const el = imgs[i]; if (el.tagName === 'VIDEO' && el.muted) { el.muted = false; return; } show(i + (e.clientX < innerWidth / 3 ? -1 : 1)); };
 addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'PageDown') show(i + 1); else if (e.key === 'ArrowLeft' || e.key === 'PageUp') show(i - 1); else if (e.key === ' ') { e.preventDefault(); setPlaying(!playing); } });
 show(i); requestAnimationFrame(tick);
 </script>
