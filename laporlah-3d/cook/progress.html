@@ -1,0 +1,113 @@
+<title>Laporlah 3D Build Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* Layout: one narrow status column. Verdict board first, gates second, log last. */
+:root {
+  --bg: #f6f8f9; --panel: #ffffff; --fg: #14202a; --muted: #5b6b78; --line: #dbe2e7;
+  --accent: #0c6e8f; --ours: #17794a; --ref: #b3401f; --wait: #8a6a12;
+  --ours-bg: #e2f3ea; --ref-bg: #fbe7e0; --wait-bg: #f6eccd; --idle-bg: #e9eef1;
+  --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --body: Inter, "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0e151a; --panel: #162028; --fg: #e6edf1; --muted: #93a3af; --line: #26343f;
+  --accent: #5cc0e0; --ours: #5fd39a; --ref: #f08a6a; --wait: #e2c15c;
+  --ours-bg: #143826; --ref-bg: #47201a; --wait-bg: #3d3212; --idle-bg: #1f2c36; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0e151a; --panel: #162028; --fg: #e6edf1; --muted: #93a3af; --line: #26343f;
+  --accent: #5cc0e0; --ours: #5fd39a; --ref: #f08a6a; --wait: #e2c15c;
+  --ours-bg: #143826; --ref-bg: #47201a; --wait-bg: #3d3212; --idle-bg: #1f2c36; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15px; line-height: 1.5;
+  padding-block: 28px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+main { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+h1 { font-family: var(--display); font-size: 28px; line-height: 1.15; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--display); font-size: 17px; margin: 0 0 10px; }
+p { margin: 0; }
+.sub { color: var(--muted); max-width: 65ch; margin-top: 8px; }
+.now { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.now strong { font-weight: 600; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 20px; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.tablewrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font-size: 12px; font-weight: 600; color: var(--muted); }
+td.piece { font-weight: 600; white-space: nowrap; }
+td.gap { color: var(--muted); font-size: 13.5px; min-width: 220px; }
+.pill { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 12.5px; font-weight: 500; white-space: nowrap; }
+.ours { background: var(--ours-bg); color: var(--ours); } .ref { background: var(--ref-bg); color: var(--ref); }
+.wait { background: var(--wait-bg); color: var(--wait); } .idle { background: var(--idle-bg); color: var(--muted); }
+ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.gates li, .log li { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.gates li:last-child, .log li:last-child { border-bottom: 0; }
+.gates .id, .log time { flex: 0 0 52px; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.gates .what, .log .what { flex: 1; min-width: 0; }
+.note { color: var(--muted); font-size: 13.5px; max-width: 65ch; }
+</style>
+<main>
+  <header>
+    <h1>Laporlah 3D build board</h1>
+    <p class="sub">A public street in Seri Kerinchi, a clogged drain, an English draft and a Telegram handoff. Each piece passes only when a fresh critic, shown our still beside the reference with labels stripped, picks ours at desktop and at phone.</p>
+  </header>
+
+  <section class="now">
+    <p><strong>Now:</strong> A working build is handed to the Reportlah session to serve at /3d/. The 3D street, the clogged drain, the draft, Confirm, the ranked inbox, approval and the Telegram link all exist and render. The app connects to Reportlah's live state when served from its origin and falls back to labelled demo data.</p>
+    <p>Checked at 14:07: served under /3d/ beside a stub of Reportlah's API, the app shows "Live from Reportlah" with Reportlah's five complaints and count 5 at desktop and phone width, and "Demo data" when the API is down. All 24 stills rendered.</p>
+    <p>Not done: no blind critic has judged anything, the unit tests do not load, the browser flow test was not run, and posting a Confirm to Reportlah is wired but not yet exercised. The nine-builder fan-out was stopped at 13:46 because it saturated the laptop.</p>
+    <div class="meta"><span>Started 19 Nov, 12:56</span><span>Last update 19 Nov, 14:08</span><span>Round 1 of an open-ended loop</span><span>Gates met 0 of 14</span></div>
+  </section>
+
+  <section>
+    <h2>Blind verdicts</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Piece</th><th>Reference</th><th>Round</th><th>Desktop</th><th>Phone</th><th>Biggest gap named by the critic</th></tr></thead>
+        <tbody>
+          <tr><td class="piece">Walk to the drain</td><td>3D tour and street panorama</td><td>0</td><td><span class="pill idle">not judged</span></td><td><span class="pill idle">not judged</span></td><td class="gap">First build in progress</td></tr>
+          <tr><td class="piece">Draft card</td><td>Inbox</td><td>0</td><td><span class="pill idle">not judged</span></td><td><span class="pill idle">not judged</span></td><td class="gap">First build in progress</td></tr>
+          <tr><td class="piece">Merge, 4 to 5 complaints</td><td>Inbox</td><td>0</td><td><span class="pill idle">not judged</span></td><td><span class="pill idle">not judged</span></td><td class="gap">First build in progress</td></tr>
+          <tr><td class="piece">Rank jump, 2 to 1</td><td>Inbox</td><td>0</td><td><span class="pill idle">not judged</span></td><td><span class="pill idle">not judged</span></td><td class="gap">First build in progress</td></tr>
+          <tr><td class="piece">Approval and Telegram</td><td>Inbox</td><td>0</td><td><span class="pill idle">not judged</span></td><td><span class="pill idle">not judged</span></td><td class="gap">First build in progress</td></tr>
+          <tr><td class="piece">Type</td><td>Inbox</td><td>0</td><td><span class="pill idle">not judged</span></td><td><span class="pill idle">not judged</span></td><td class="gap">First build in progress</td></tr>
+          <tr><td class="piece">Motion</td><td>3D tour frames</td><td>0</td><td><span class="pill idle">not judged</span></td><td><span class="pill idle">not judged</span></td><td class="gap">First build in progress</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Gates</h2>
+    <ul class="gates">
+      <li><span class="id">G1</span><span class="what">App type-checks and builds</span><span class="pill ours">passes by hand, gate script not rerun</span></li>
+      <li><span class="id">G2</span><span class="what">Engine rules: draft stays not confirmed, Confirm 4 to 5, rank 2 to 1, double tap stays 5, exact Telegram message, no council named, no WhatsApp anywhere</span><span class="pill ref">tests do not load</span></li>
+      <li><span class="id">G3</span><span class="what">Full flow in a real browser at 1440 and 390 wide</span><span class="pill wait">building</span></li>
+      <li><span class="id">G4</span><span class="what">Every shot preset renders a non-blank still, no console errors</span><span class="pill wait">building</span></li>
+      <li><span class="id">G5 to G11</span><span class="what">One blind verdict per piece, both viewports</span><span class="pill idle">unmet</span></li>
+      <li><span class="id">G12</span><span class="what">You approve the stills in chat</span><span class="pill idle">unmet</span></li>
+      <li><span class="id">G13</span><span class="what">Connected to Reportlah: Confirm posts one real complaint, every number shown comes from Reportlah, falls back to labelled demo data when it is down</span><span class="pill idle">unmet</span></li>
+      <li><span class="id">G14</span><span class="what">Live check against the real Reportlah app, with your go-ahead</span><span class="pill idle">unmet</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Log</h2>
+    <ul class="log">
+      <li><time>14:07</time><span class="what">Connected mode smoke test passed against a stub of Reportlah at both widths. Phone header fixed. Final build sent to the Reportlah session.</span></li>
+      <li><time>13:53</time><span class="what">Build handed to the Reportlah session for /3d/. Live connection wired at the app entry. Desktop stills of the walk and the inbox render correctly.</span></li>
+      <li><time>13:46</time><span class="what">Your deadline: 20 minutes. Fan-out stopped, it had saturated the laptop. Switched to shipping what exists.</span></li>
+      <li><time>13:36</time><span class="what">Your instruction: more agents. Single-builder run stopped with its work kept. Nine builders launched in parallel, then integrator, verifier, photographer and sixteen blind critics.</span></li>
+      <li><time>13:30</time><span class="what">Reportlah's API mapped read-only and written up as the contract for the integration builder.</span></li>
+      <li><time>13:28</time><span class="what">You approved same-origin serving. Reportlah will serve this build at /3d/. Build set to relative asset paths. All references captured: inbox, 3D tour, street panorama, motion strips.</span></li>
+      <li><time>13:22</time><span class="what">Your instruction: integrate with Reportlah. The demo will post to Reportlah's API and show its real numbers. Two gates added. Reportlah's API is being mapped read-only.</span></li>
+      <li><time>13:08</time><span class="what">Round 0 relaunched in English: Confirm, Approve, Open Telegram, "Opened in Telegram". No app code was lost; none had been written.</span></li>
+      <li><time>13:06</time><span class="what">Your correction: the demo is in English, same as Reportlah.</span></li>
+      <li><time>13:04</time><span class="what">Your correction: Telegram only, public facilities. Brief and gates rewritten: public street, clogged drain, Telegram link. No WhatsApp, no condominium. A real street panorama added as a second reference for the walk.</span></li>
+      <li><time>13:00</time><span class="what">Round 0 first launched: reference capture and foundation build in parallel, verifier after.</span></li>
+      <li><time>12:58</time><span class="what">Gates, brief and ledger written before any code.</span></li>
+      <li><time>12:57</time><span class="what">Stack set: Vite, React, TypeScript, plain three.js. All geometry and textures made in code.</span></li>
+      <li><time>12:56</time><span class="what">Decision: standalone folder laporlah-3d. The stage app in reportlah is not touched.</span></li>
+    </ul>
+    <p class="note" style="margin-top:12px">Known risk: the 3D tour and the street panorama are photographs of real places. Code-made geometry may not win that comparison blind. The board will show the critic's pick either way.</p>
+  </section>
+</main>
