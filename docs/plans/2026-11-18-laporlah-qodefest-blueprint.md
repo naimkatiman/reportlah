@@ -1,4 +1,6 @@
 Laporlah | QodeFest blueprint
+
+Status: Superseded (19 Nov 2026). Reportlah goes on stage instead. See BLUEPRINT-reportlah.md.
 19 November 2026, Kuala Lumpur
 Ken (Presenter), Isyraf and Syeeda (Researchers), Naim (Developer)
 

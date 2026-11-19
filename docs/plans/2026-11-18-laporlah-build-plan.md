@@ -1,5 +1,7 @@
 # Laporlah Implementation Plan
 
+> **Status: Superseded (19 Nov 2026).** Reportlah goes on stage instead. See `BLUEPRINT-reportlah.md`.
+
 > **For agentic workers:** this plan is executed on Thu 19 Nov 2026 inside the Qoder IDE (Agent mode), one Agent chat per sub-task (T2b, T2c, T3a, ...). Read Global Constraints and the Shared Contract, then your task. Steps use checkbox (`- [ ]`) syntax. Write the tests and the implementation in one pass, run `npm test`, fix until green. Do not start a dev server (the developer runs it; Next 16 locks a second instance out). Do not add dependencies beyond `openai` and `vitest`. Test files import `describe, it, expect, vi, beforeEach` from `vitest` (no globals).
 
 **Goal:** a localhost Next.js app where one resident photo becomes a draft report, Sahkan merges it into an existing ticket (4 laporan to 5), a new fact creates ticket version 2, and Lulus approves one exact message to one exact recipient before Buka WhatsApp opens a prefilled composer.

@@ -1,5 +1,7 @@
 # Suara Setempat Blueprint
 
+> **Status: Superseded (19 Nov 2026).** Reportlah goes on stage instead. See `BLUEPRINT-reportlah.md`.
+
 QodeFest, Alibaba Cloud Qwen Conference Malaysia. Thu 19 Nov 2026, Connexion Nexus, KL.
 Sprint 11:50 to 15:00 (lunch, build, demo prep, submit). Pitching 15:00 to 16:00. Code freeze 14:15. Aim to submit by 14:45.
 
