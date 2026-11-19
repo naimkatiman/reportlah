@@ -41,5 +41,6 @@ undecided, and decide yourself.
 
 ## /coder
 
-`/coder <task>` routes at least 30% of coding subtasks to Qwen on OpenRouter.
+`/coder <task>` routes at least 30% of coding subtasks to Qwen (Qwen Code CLI first,
+OpenRouter API fallback).
 The flow and script live in the laptop-wide skill `~/.claude/skills/coder/`.
