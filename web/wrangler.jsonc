@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "reportlah",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  // One row holds the whole demo state, in its own table of the existing database.
+  "d1_databases": [{ "binding": "DB", "database_name": "laporlah", "database_id": "e9d5795f-8d9f-402a-96e6-3f1c33376595" }],
+  "vars": {
+    "QWEN_BASE_URL": "https://openrouter.ai/api/v1",
+    "QWEN_MODEL": "qwen/qwen3.7-plus",
+    "QWEN_TIMEOUT_MS": "20000",
+    "AGENT_MODE": "loop",
+    "WA_BASE": "https://api.whatsapp.com/send"
+  },
+  "observability": { "enabled": true }
+}
