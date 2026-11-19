@@ -1,5 +1,18 @@
 # Rosak: Claude Code rules
 
+## Source of truth
+
+- If notes, plans or instructions disagree with the app, follow the app and point
+  out the mismatch in your reply. The exception is a plan marked "In progress":
+  that's where the app is going, so follow the plan. When you finish a plan, change
+  its status to Done.
+- Leave notes, TODOs and plans you weren't asked about alone. If you notice one that
+  looks relevant, list it at the end of your reply instead of acting on it.
+- When the user asks for a new feature that isn't covered by a plan in `docs/plans/`,
+  compare it with the existing plans there first. Flag any overlap or conflict and
+  ask whether they still want to go ahead before building.
+- Never read `archive/`. `/sweep` moves outdated material there and a hook blocks it.
+
 ## Orchestration
 
 The main session runs Fable 5.2 at medium effort as the orchestrator. It plans,

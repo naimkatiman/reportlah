@@ -1,0 +1,3 @@
+# Outdated material moved aside by /sweep. Search tools (ripgrep, Claude's
+# Grep/Glob) skip it so it can't mislead anyone working on the current app.
+/archive/
