@@ -1,0 +1,39 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "cluster",
+      "description": "Choose which complaints describe the same problem at the same place, and name the place and the issue.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "main_ids": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Ids of the complaints that belong to the report."
+          },
+          "place": { "type": "string", "description": "Short name of the place, using words from the complaints." },
+          "issue": { "type": "string", "description": "Short phrase naming the problem." },
+          "reason": { "type": "string", "description": "One sentence explaining the grouping." }
+        },
+        "required": ["main_ids", "place", "issue", "reason"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "draft_report",
+      "description": "Write the message that residents can copy and send.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": { "type": "string", "description": "The message, in English, containing {{recipient}}, {{count}} and {{period}}." }
+        },
+        "required": ["text"],
+        "additionalProperties": false
+      }
+    }
+  }
+]
