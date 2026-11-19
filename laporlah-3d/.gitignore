@@ -1,0 +1,9 @@
+node_modules
+dist
+cook/stills
+cook/compare
+# Third-party reference screenshots: private comparison only, never published.
+cook/refs
+# Builder scratch output. The smoke script itself is kept.
+cook/_work/*
+!cook/_work/smoke-connected.mjs
